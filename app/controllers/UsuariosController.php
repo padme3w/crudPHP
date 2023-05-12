@@ -12,7 +12,7 @@ use models\Usuario;
 class UsuariosController {
 
 	/**
-	* Para acessar http://ENDEREÇODAPASTA/usuarios/index
+	* Para acessar http://localhost/NOMEDOPROJETO/usuarios/index
 	**/
 	function index($id = null){
 
@@ -22,9 +22,11 @@ class UsuariosController {
 		#cria o model
 		$model = new Usuario();
 		
-		#busca 1 registro
+		
 		$send['data'] = null;
+		#se for diferente de nulo é porque estou editando o registro
 		if ($id != null){
+			#então busca o registro do banco
 			$send['data'] = $model->findById($id);
 		}
 
@@ -38,10 +40,15 @@ class UsuariosController {
 	}
 
 	
-	function salvar(){
+	function salvar($id=null){
 
 		$model = new Usuario();
-		$id = $model->save($_POST);
+		
+		if ($id == null){
+			$id = $model->save($_POST);
+		} else {
+			$id = $model->update($id, $_POST);
+		}
 		
 		redirect("usuarios/index/$id");
 	}
@@ -49,7 +56,7 @@ class UsuariosController {
 	function deletar(int $id){
 		
 		$model = new Usuario();
-		$id = $model->delete($id);
+		$model->delete($id);
 
 		redirect("usuarios/index/");
 	}

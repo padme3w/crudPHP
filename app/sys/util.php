@@ -13,6 +13,13 @@ function _v($arr,$val){
 	}
 }
 
+function dd($arr){
+    print "<pre>";
+    print_r($arr);
+    print "</pre>";
+    die();
+}
+
 /**
 * AmericanDate to PtBrDate
 */
