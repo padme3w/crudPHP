@@ -48,9 +48,28 @@
             <td><?=$item['nome']?></td>
             <td><?=$item['dataNascimento']?></td>
             <td><?php
-            
-            if ($item['faixa'] == 0){
+            if ($item['faixa'] == 1){
                 print "branca";
+            }
+            ?></td>
+            <td><?php
+            if ($item['faixa'] == 2){
+                print "azul";
+            }
+            ?></td>
+            <td><?php
+            if ($item['faixa'] == 3){
+                print "roxa";
+            }
+            ?></td>
+            <td><?php
+            if ($item['faixa'] == 4){
+                print "marrom";
+            }
+            ?></td>
+            <td><?php
+            if ($item['faixa'] == 5){
+                print "preta";
             }
             ?></td>
             <td>
