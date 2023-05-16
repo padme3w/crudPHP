@@ -13,14 +13,18 @@
     <input type="text" name="dataNascimento" value="<?=_v($data,"dataNascimento")?>" >
 </label>
 
-<label>
+
+
+<label class='col-md-6'>
     Faixa
-    <input type="hidden" name="faixa" value="0">
-    <input type="radio" name="faixa" value="1" <?=_v($data,"faixa") == 1 ? 'checked' : '' ?> >
-    <input type="radio" name="faixa" value="2" <?=_v($data,"faixa") == 2 ? 'checked' : '' ?> >
-    <input type="radio" name="faixa" value="3" <?=_v($data,"faixa") == 3 ? 'checked' : '' ?> >
-    <input type="radio" name="faixa" value="4" <?=_v($data,"faixa") == 4 ? 'checked' : '' ?> >
-    <input type="radio" name="faixa" value="5" <?=_v($data,"faixa") == 5 ? 'checked' : '' ?> >
+    <select name="faixa" class="form-control">
+        <?php
+        foreach($tipos as $k=>$tipo){
+            _v($data,"tipo") == $k ? $selected='selected' : $selected='';
+            print "<option value='$k' $selected>$tipo</option>";
+        }
+        ?>
+    </select>
 </label>
 
 
@@ -47,16 +51,20 @@
             </td>
             <td><?=$item['nome']?></td>
             <td><?=$item['dataNascimento']?></td>
-            <td><?php
-            if ($item['faixa'] == 1){
-                print "branca";
-            }
-            ?></td>
-            <td><?php
-            if ($item['faixa'] == 2){
-                print "azul";
-            }
-            ?></td>
+            <td>
+                <?php
+                    if ($item['faixa'] == 1){
+                        print "branca";
+                    }
+                ?>
+            </td>
+            <td>
+                <?php
+                    if ($item['faixa'] == 2){
+                        print "azul";
+                    }
+                ?>
+            </td>
             <td><?php
             if ($item['faixa'] == 3){
                 print "roxa";
