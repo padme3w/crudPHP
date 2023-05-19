@@ -57,29 +57,29 @@
                         print "branca";
                     }
                 ?>
-            </td>
-            <td>
+            
                 <?php
                     if ($item['faixa'] == 2){
                         print "azul";
                     }
                 ?>
-            </td>
-            <td><?php
-            if ($item['faixa'] == 3){
-                print "roxa";
-            }
-            ?></td>
-            <td><?php
-            if ($item['faixa'] == 4){
-                print "marrom";
-            }
-            ?></td>
-            <td><?php
-            if ($item['faixa'] == 5){
-                print "preta";
-            }
-            ?></td>
+            
+                <?php
+                    if ($item['faixa'] == 3){
+                        print "roxa";
+                    }
+                ?>
+
+                <?php
+                    if ($item['faixa'] == 4){
+                        print "marrom";
+                    }
+                ?>
+                <?php
+                    if ($item['faixa'] == 5){
+                        print "preta";
+                    }
+                ?>
             <td>
                 <a href='<?=route("atletas/deletar/{$item['id']}")?>'>Deletar</a>
             </td>
