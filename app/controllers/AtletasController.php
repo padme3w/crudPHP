@@ -37,11 +37,16 @@ class AtletasController {
 		render("atletas", $send);
 	}
 
-	
-	function salvar(){
+
+	function salvar($id=null){
 
 		$model = new Atleta();
-		$id = $model->save($_POST);
+		
+		if ($id == null){
+			$id = $model->save($_POST);
+		} else {
+			$id = $model->update($id, $_POST);
+		}
 		
 		redirect("atletas/index/$id");
 	}

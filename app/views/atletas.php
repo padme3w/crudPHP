@@ -1,7 +1,6 @@
 <?php include 'layout-top.php' ?>
 
-
-<form method='POST' action='<?=route('atletas/salvar')?>'>
+<form method='POST' action='<?=route('atletas/salvar/'._v($data,"id"))?>'>
 
 <label>
     Nome
