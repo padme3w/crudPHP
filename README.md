@@ -1,6 +1,7 @@
 ### Instalação
 
-Extraia toda a pasta do projeto para htdocs do XAMPP
-Ex: c:/xampp/htdocs/NOME_DO_PROJETO
+Amanda Medeiros de Oliveira 
+Kleberson Barbosa Freitas
+Info4M
 
-Inicie o XAMPP e acesse o projeto.
+O projeto é sobre um sistema de inscrição em campeonatos de Jiu-Jitsu.
