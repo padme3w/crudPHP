@@ -1,6 +1,4 @@
 <?php
-use models\Atleta;
-use models\Categoria;
 use models\Equipe;
 
 /**
@@ -11,7 +9,7 @@ use models\Equipe;
 #A classe devera sempre iniciar com letra maiuscula
 #terá sempre o mesmo nome do arquivo
 #e precisa terminar com a palavra Controller
-class AtletasController {
+class EquipesController {
 
 	/**
 	* Para acessar http://ENDEREÇODAPASTA/usuarios/index
@@ -22,7 +20,7 @@ class AtletasController {
 		$send = [];
 
 		#cria o model
-		$model = new Atleta();
+		$model = new Equipe();
 		
 		#busca 1 registro
 		$send['data'] = null;
@@ -33,22 +31,14 @@ class AtletasController {
 		#busca todos os registros
 		$send['lista'] = $model->all();
 
-		 #recupera a lista com todos os modelos
-		 $equipeModel = new Equipe();
-		 $send['equipe'] = $equipeModel->all();
- 
-		 #recupera a lista com todos os modelos
-		 $categoriaModel = new Categoria();
-		 $send['categoria'] = $categoriaModel->all();
-
 		#chama a view
-		render("atletas", $send);
+		render("equipes", $send);
 	}
 
 
 	function salvar($id=null){
 
-		$model = new Atleta();
+		$model = new Equipe();
 		
 		if ($id == null){
 			$id = $model->save($_POST);
@@ -56,15 +46,15 @@ class AtletasController {
 			$id = $model->update($id, $_POST);
 		}
 		
-		redirect("atletas/index/$id");
+		redirect("equipes/index/$id");
 	}
 
 	function deletar(int $id){
 		
-		$model = new Atleta();
+		$model = new Equipe();
 		$id = $model->delete($id);
 
-		redirect("atletas/index/");
+		redirect("equipes/index/");
 	}
 
 
