@@ -27,9 +27,38 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="<?=route('usuarios')?>">Usuários</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
           <a class="nav-link" href="<?=route('atletas')?>">Atletas</a>
-          <a class="nav-link" href="<?=route('equipes')?>">Equipes</a>
-          <a class="nav-link" href="<?=route('categorias')?>">Categorias</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+        <a class="nav-link" href="<?=route('equipes')?>">Equipes</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+        <a class="nav-link" href="<?=route('categorias')?>">Categorias</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+        <a class="nav-link" href="<?=route('checagem')?>">Checagem</a>
         </li>
       </ul>
     </div>

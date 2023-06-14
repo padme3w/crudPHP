@@ -32,5 +32,21 @@ CREATE TABLE IF NOT EXISTS atletas (
         REFERENCES categorias (id)
 );
 
+DROP TABLE IF EXISTS checagem;
+
+CREATE TABLE IF NOT EXISTS checagem (
+    id              INTEGER PRIMARY KEY,
+    nome            TEXT    NOT NULL,
+    equipe          TEXT,
+    categoria       TEXT,
+
+    FOREIGN KEY (nome)
+        REFERENCES atletas (nome),
+    FOREIGN KEY (equipe)
+        REFERENCES atletas (equipe),
+    FOREIGN KEY (categoria)
+        REFERENCES atletas (categoria)
+);
+
 
 
