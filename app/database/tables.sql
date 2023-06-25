@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS categorias (
     peso            TEXT,
     kimono          TEXT
 );
+
 DROP TABLE IF EXISTS atletas;
 
 CREATE TABLE IF NOT EXISTS atletas (
@@ -32,21 +33,16 @@ CREATE TABLE IF NOT EXISTS atletas (
         REFERENCES categorias (id)
 );
 
-DROP TABLE IF EXISTS checagem;
+DROP TABLE IF EXISTS usuarios;
 
-CREATE TABLE IF NOT EXISTS checagem (
+CREATE TABLE IF NOT EXISTS usuarios (
     id              INTEGER PRIMARY KEY,
     nome            TEXT    NOT NULL,
-    equipe          TEXT,
-    categoria       TEXT,
-
-    FOREIGN KEY (nome)
-        REFERENCES atletas (nome),
-    FOREIGN KEY (equipe)
-        REFERENCES atletas (equipe),
-    FOREIGN KEY (categoria)
-        REFERENCES atletas (categoria)
+    dataNascimento  TEXT,
+    tipo            INTEGER,
+    ativado         INTEGER,
+    email           TEXT,
+    senha           TEXT
 );
 
-
-
+INSERT INTO usuarios VALUES (1, 'amanda', '08/06/2005', 5, 2, 'amanda123@gmail.com', '123' )

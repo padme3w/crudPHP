@@ -61,5 +61,17 @@ class UsuariosController {
 		redirect("usuarios/index/");
 	}
 
+	#construtor, é iniciado sempre que a classe é chamada
+	function __construct() {
+		#se nao existir é porque nao está logado
+		if (!isset($_SESSION["user"])){
+			redirect("autenticacao");
+			die();
+		}
 
+		if ($_SESSION['user']['tipo'] < Usuario::ADMIN_USER){
+			header("HTTP/1.1 401 Unauthorized");
+			die();
+		}
+	}
 }

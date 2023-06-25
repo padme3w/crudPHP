@@ -32,6 +32,17 @@
     </select>
 </label>
 
+<label class='col-md-6'>
+    E-mail
+    <input type="text" class="form-control" name="email" value="<?=_v($data,"email")?>" >
+</label>
+
+<label class='col-md-6'>
+    Senha
+    <input type="password" class="form-control" name="senha" value="" >
+</label>
+
+
 <button class='btn btn-primary col-12 col-md-3 mt-3'>Salvar</button>
 <a class='btn btn-secondary col-12 col-md-3 mt-3' href="<?=route("usuarios")?>">Novo</a>
 
@@ -43,6 +54,7 @@
         <th>Editar</th>
         <th>Nome</th>
         <th>Data de nascimento</th>
+        <th>Email</th>
         <th>Deletar</th>
     </tr>
 
@@ -54,6 +66,7 @@
             </td>
             <td><?=$item['nome']?></td>
             <td><?=$item['dataNascimento']?></td>
+            <td><?=$item['email']?></td>
             <td>
                 <a href='<?=route("usuarios/deletar/{$item['id']}")?>'>Deletar</a>
             </td>
