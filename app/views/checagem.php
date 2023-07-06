@@ -1,13 +1,13 @@
 <?php include 'layout-top.php' ?>
 
-<form method='POST' action='<?=route('checagem/salvar/'._v($data,"id"))?>'>
+<form method='GET' action='<?=route('checagem/index/'._v($data,"id"))?>'>
 
 <label class='col-md-6'>
     Selecione uma categoria
     <select name="categoria" class="form-control">
         <?php
         foreach($categoria as $categoria){
-            _v($data,"categoria") == $categoria['nome'] ? $selected='selected' : $selected='';
+            _v($_GET,"categoria") == $categoria['nome'] ? $selected='selected' : $selected='';
             print "<option value='{$categoria['nome']}' $selected>{$categoria['nome']}</option>";
         }
         ?>

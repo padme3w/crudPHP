@@ -27,12 +27,13 @@ class ChecagemController {
 		
 		#busca 1 registro
 		$send['data'] = null;
-		if ($id != null){
-			$send['data'] = $model->findById($id);
+
+		if (!isset($_GET['categoria'])) {
+			$_GET['categoria'] = NULL;
 		}
 
 		#busca todos os registros
-		$send['lista'] = $model->all();
+		$send['lista'] = $model->findByCat($_GET['categoria']);
 
 		 #recupera a lista com todos os modelos
 		 $equipeModel = new Equipe();
