@@ -45,4 +45,3 @@ CREATE TABLE IF NOT EXISTS usuarios (
     senha           TEXT
 );
 
-INSERT INTO usuarios VALUES (1, 'amanda', '08/06/2005', 5, 2, 'amanda123@gmail.com', '123' )

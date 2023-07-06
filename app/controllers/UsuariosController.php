@@ -69,8 +69,8 @@ class UsuariosController {
 			die();
 		}
 
-		if ($_SESSION['user']['tipo'] < Usuario::ADMIN_USER){
-			header("HTTP/1.1 401 Unauthorized");
+		if ($_SESSION['user']['tipo'] != Usuario::ADMIN_USER){
+			redirect("checagem");
 			die();
 		}
 	}

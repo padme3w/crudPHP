@@ -9,7 +9,7 @@ class Usuario extends Model {
     protected $fields = ["id","nome","dataNascimento","tipo","ativado","email","senha"];
 
     const COMUM_USER = 1;
-    const ADMIN_USER = 5;
+    const ADMIN_USER = 2;
 
     public static $userTypes = [Usuario::COMUM_USER=>"Usuário comum",
                                 Usuario::ADMIN_USER=>"Admin"];
@@ -18,7 +18,7 @@ class Usuario extends Model {
         $sql = "SELECT * FROM {$this->table} "
                 ." WHERE email = :email and senha = :senha";
         $stmt = $this->pdo->prepare($sql);
-        $data = [':email' => $email, ":senha"=>$senha];
+        $data = [':email' => $email, ":senha"=>hash("sha256", $senha)];
         $stmt->execute($data);
         if ($stmt == false){
             $this->showError($sql,$data);
