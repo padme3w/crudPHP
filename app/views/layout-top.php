@@ -11,6 +11,9 @@
 	<script src="<?=assets('js/jquery.js')?>" ></script>
 	<script src="<?=assets('js/jquery.mask.min.js')?>" ></script>
 	<script src="<?=assets('js/form.js')?>" ></script>
+  <script src="https://unpkg.com/imask"></script>
+  <script src="<?=assets('js/main.js')?>"></script>
+
 
     <link rel="stylesheet" href="<?=assets('css/estilo.css')?>" />
 </head>
@@ -82,3 +85,14 @@
 </nav>
 
 <div class="container">
+
+<?php
+
+if (getFlash("success")){
+    print "<div class='alert alert-success' role='alert'>".getFlash("success")."</div>";
+} else
+if (getFlash("error")){
+    print "<div class='alert alert-danger' role='alert'>".getFlash("error")."</div>";
+}
+
+?>
