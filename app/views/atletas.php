@@ -4,12 +4,14 @@
 
 <label>
     Nome
-    <input type="text" name="nome" value="<?=_v($data,"nome")?>" >
+    <input type="text" name="nome" value="<?=old("nome", _v($data,"nome"))?>" class="form-control <?=hasError("nome","is-invalid")?>">
+    <div class='invalid-feedback'><?=getValidationError("nome") ?></div>
+
 </label>
 
 <label class='col-md-6'>
     Equipe
-    <select name="equipe" class="form-control">
+    <select name="equipe" class="form-control <?=hasError("nome","is-invalid")?>">
         <?php
         foreach($equipe as $equipe){
             _v($data,"equipe") == $equipe['equipe'] ? $selected='selected' : $selected='';

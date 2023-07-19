@@ -33,7 +33,7 @@ class UsuariosController {
 		#busca todos os registros
 		$send['lista'] = $model->all();
 
-		$send['tipos'] = [0=>"Escolha uma opção", 1=>"Usuário comum", 2=>"Admin"];
+		$send['tipos'] = [0=>"", 1=>"Atleta", 2=>"Organização de eventos"];
 
 		#chama a view
 		render("usuarios", $send);
@@ -46,7 +46,10 @@ class UsuariosController {
 
 		#validacao
 		$requeridos = ["nome"=>"Nome é obrigatório",
-		"dataNascimento"=>"Data de nascimento é obrigatória"];
+		"dataNascimento"=>"Data de nascimento é obrigatória",
+		"tipo"=>"Declarar o tipo de usuário é obrigatório",
+		"email"=>"Email é obrigatório"];
+		
 		foreach($requeridos as $field=>$msg){
 			#verifica se o campo está vazio
 			if (!validateRequired($_POST,$field)){
@@ -92,8 +95,13 @@ class UsuariosController {
 			die();
 		}
 
-		if ($_SESSION['user']['tipo'] != Usuario::ADMIN_USER){
-			redirect("checagem");
+		if ($_SESSION['user']['tipo'] < Usuario::ADMIN_USER){
+			redirect("atletas");
+			die();
+		}
+
+		if ($_SESSION['user']['tipo'] < Usuario::ADMIN_USER){
+			redirect("atletas");
 			die();
 		}
 	}

@@ -16,30 +16,26 @@
             value="<?=old("dataNascimento", _v($data,"dataNascimento"))?>" >
 
     <!-- para esse formato (invalid-tooltip) funcionar, o parent tem que ser relative -->
-    <div class="invalid-tooltip"><?=getValidationError("dataNascimento") ?></div>
-</label>
-
-<label class='col-md-2'>
-    Ativado
-    <input type="hidden" name="ativado" value="0">
-    <input type="checkbox" class="form-check-input" name="ativado" value="1" <?=_v($data,"ativado") == 1 ? 'checked' : '' ?> >
+    <div class="invalid-feedback"><?=getValidationError("dataNascimento") ?></div>
 </label>
 
 <label class='col-md-6'>
-    Tipo
-    <select name="tipo" class="form-control">
+    Tipo de usuário <span style='color:red;'>*</span>
+    <select name="tipo" class="form-control <?=hasError("tipo","is-invalid")?>">
         <?php
         foreach($tipos as $k=>$tipo){
             _v($data,"tipo") == $k ? $selected='selected' : $selected='';
             print "<option value='$k' $selected>$tipo</option>";
         }
         ?>
+        <div class='invalid-feedback'><?=getValidationError("tipo") ?></div>
     </select>
 </label>
 
 <label class='col-md-6'>
-    E-mail
-    <input type="text" class="form-control" name="email" value="<?=old("email", _v($data,"email"))?>" >
+    E-mail <span style='color:red;'>*</span>
+    <input type="text" class="form-control <?=hasError("email","is-invalid")?>" name="email" value="<?=old("email", _v($data,"email"))?>" >
+    <div class='invalid-feedback'><?=getValidationError("email") ?></div>
 </label>
 
 <label class='col-md-6'>

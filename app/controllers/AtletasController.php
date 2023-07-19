@@ -49,7 +49,23 @@ class AtletasController {
 	function salvar($id=null){
 
 		$model = new Atleta();
-		
+
+		#validacao
+		$requeridos = ["nome"=>"Nome é obrigatório"];
+		foreach($requeridos as $field=>$msg){
+			#verifica se o campo está vazio
+			if (!validateRequired($_POST,$field)){
+				setValidationError($field, $msg);
+			}
+		}
+		#se alguma validação tiver falhado
+		if (count($_SESSION['errors'])){
+			setFlash("error","Falha ao salvar usuário.");
+			#volta para a página que estava
+			header('Location: ' . $_SERVER['HTTP_REFERER']);
+			die();
+		}
+
 		if ($id == null){
 			$id = $model->save($_POST);
 		} else {
@@ -64,6 +80,7 @@ class AtletasController {
 		$model = new Atleta();
 		$id = $model->delete($id);
 
+		setFlash("success","Salvo com sucesso.");
 		redirect("atletas/index/");
 	}
 

@@ -15,7 +15,7 @@
         <div class="card-body">
         <h3 class="card-title">Exemplo de CRUD</h3>
 
-        <p>Este projeto contém um exemplo de um CRUD de usuários: <a href="<?=route("usuarios")?>"><?=route("usuarios")?></a> </p>
+        <p>Este projeto contém um exemplo de um CRUD de usuários: <a href="<?=route("autenticacao")?>"><?=route("login")?></a> </p>
         </div>
     </div>
 
